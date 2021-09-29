@@ -5,3 +5,6 @@ CREATE DATABASE payroll_service;
 SHOW DATABASES;
 USE payroll_service;
 SELECT DATABASE();
+
+#UC-2
+CREATE TABLE employee_payroll;
