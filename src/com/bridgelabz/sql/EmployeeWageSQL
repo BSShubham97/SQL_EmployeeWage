@@ -107,3 +107,35 @@ SELECT gender , AVG (salary) FROM employee_payroll GROUP BY gender;
 | salary       | double       | NO   |     | NULL    |                |
 | start        | date         | NO   |     | NULL    |                |
 +--------------+--------------+------+-----+---------+----------------+
+
+#UC-9
+
+ ALTER TABLE employee_payroll RENAME COLUMN salary TO basic_pay;
+
+ ALTER TABLE employee_payroll ADD deduction Double NOT NULL AFTER basic_pay;
+
+ ALTER TABLE employee_payroll ADD taxable_pay Double NOT NULL AFTER deduction;
+
+ ALTER TABLE employee_payroll ADD tax Double NOT NULL AFTER taxable_pay;
+
+ ALTER TABLE employee_payroll ADD net_pay Double NOT NULL AFTER tax;
+
+ DESCRIBE employee_payroll;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int          | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(100) | NO   |     | NULL    |                |
+| phone_number | varchar(250) | YES  |     | NULL    |                |
+| address      | varchar(250) | YES  |     | TBD     |                |
+| department   | varchar(150) | NO   |     | NULL    |                |
+| gender       | char(1)      | YES  |     | NULL    |                |
+| basic_pay    | double       | NO   |     | NULL    |                |
+| deduction    | double       | NO   |     | NULL    |                |
+| taxable_pay  | double       | NO   |     | NULL    |                |
+| tax          | double       | NO   |     | NULL    |                |
+| net_pay      | double       | NO   |     | NULL    |                |
+| start        | date         | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+
+
