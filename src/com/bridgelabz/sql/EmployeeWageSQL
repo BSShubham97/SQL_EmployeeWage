@@ -43,3 +43,26 @@ CREATE TABLE employee_payroll;
   |  3 | Charlie |  30000 | 2020-05-21 |
   +----+---------+--------+------------+
 
+#UC-6
+
+ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
+mysql> desc employee_payroll;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int          | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(100) | NO   |     | NULL    |                |
+| gender | char(1)      | YES  |     | NULL    |                |
+| salary | double       | NO   |     | NULL    |                |
+| start  | date         | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+
+ UPDATE employee_payroll set gender='M' where name='Bill' or name='Charlie';
+mysql> select * from employee_payroll;
++----+---------+--------+--------+------------+
+| id | name    | gender | salary | start      |
++----+---------+--------+--------+------------+
+|  1 | Bill    | M      |  10000 | 2018-01-03 |
+|  2 | Terisa  | F      |  20000 | 2019-01-03 |
+|  3 | Charlie | M      |  30000 | 2020-05-21 |
++----+---------+--------+--------+------------+
