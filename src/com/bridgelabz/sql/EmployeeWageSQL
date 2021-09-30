@@ -66,3 +66,20 @@ mysql> select * from employee_payroll;
 |  2 | Terisa  | F      |  20000 | 2019-01-03 |
 |  3 | Charlie | M      |  30000 | 2020-05-21 |
 +----+---------+--------+--------+------------+
+
+#UC-7
+
+SELECT AVG (salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++--------------+
+| AVG (salary) |
++--------------+
+|       155000 |
++--------------+
+
+SELECT gender , AVG (salary) FROM employee_payroll GROUP BY gender;
++--------+--------------+
+| gender | AVG (salary) |
++--------+--------------+
+| M      |       155000 |
+| F      |       300000 |
++--------+--------------+
